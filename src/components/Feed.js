@@ -30,8 +30,16 @@ export const Feed = () => {
   iconLogout.src = './images/iconeoff.png';
   iconLogout.setAttribute('id', 'iconLogout');
 
+<<<<<<< Updated upstream
   const alertConfirm = document.createElement('dialog');
   alertConfirm.setAttribute('id', 'alert-confirm');
+=======
+  // let postsToShow = [];
+  // const showPost = '';
+  getPost((posts) => {
+    // posts.forEach((post) => console.log('Current data: ', post.data()));
+    posts.forEach((post) => { containerPost.textContent = post.data().inputPost; });
+>>>>>>> Stashed changes
 
   const textConfirm = document.createElement('p');
   textConfirm.setAttribute('id', 'text-confirm');
