@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import {
-  getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, TwitterAuthProvider, GithubAuthProvider,
+  getAuth, onAuthStateChanged, createUserWithEmailAndPassword, GoogleAuthProvider, TwitterAuthProvider, GithubAuthProvider,
   signInWithRedirect, getRedirectResult, signInWithEmailAndPassword, signOut,
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 import { app } from './config.js';
@@ -21,3 +21,5 @@ export const redirectResult = () => getRedirectResult(auth);
 export const validateUserWithEmail = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 export const singOutUser = () => signOut(auth);
+
+export const onAuthStateChangedFunction = (callback) => onAuthStateChanged(auth, callback);
