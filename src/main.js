@@ -1,11 +1,9 @@
 // Este es el punto de entrada de tu aplicacion
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 import { Welcome } from './components/Welcome.js';
 import { Register } from './components/Register.js';
 import { Feed } from './components/Feed.js';
 import { Login } from './components/Login.js';
-
-const auth = getAuth();
+import { onAuthStateChangedFunction } from './lib/auth.js';
 
 const root = document.getElementById('root');
 
@@ -33,14 +31,12 @@ window.onpopstate = () => {
   root.append(routes[window.location.pathname]());
 };
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChangedFunction((user) => {
   if (user) {
     onNavigate('/feed');
   } else {
     onNavigate('/');
   }
 });
-
-export const onAuthStateChangedFunction = (callback) => onAuthStateChanged(auth, callback);
 
 root.appendChild(component());
